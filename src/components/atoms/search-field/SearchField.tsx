@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const LabelWrapper = styled.label`
+  display: block;
+  margin: 10px;
+`;
 const SearchFieldWrapper = styled.input.attrs({ type: "text" })`
   padding: 8px;
   margin: 10px;
@@ -14,5 +18,10 @@ export type SearchFieldProps = {
 };
 
 export const SearchField = ({ name, value, onChange }: SearchFieldProps) => {
-  return <SearchFieldWrapper name={name} value={value} onChange={onChange} />;
+  return (
+    <LabelWrapper>
+      {name}
+      <SearchFieldWrapper name={name} value={value} onChange={onChange} />
+    </LabelWrapper>
+  );
 };
