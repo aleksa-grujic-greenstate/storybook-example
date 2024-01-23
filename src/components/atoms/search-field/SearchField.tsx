@@ -1,3 +1,4 @@
+import { ChangeEventHandler } from "react";
 import styled from "styled-components";
 
 const LabelWrapper = styled.label`
@@ -14,7 +15,7 @@ const SearchFieldWrapper = styled.input.attrs({ type: "text" })`
 export type SearchFieldProps = {
   name: string;
   value: string;
-  onChange: () => void;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 };
 
 export const SearchField = ({ name, value, onChange }: SearchFieldProps) => {

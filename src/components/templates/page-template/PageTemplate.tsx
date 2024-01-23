@@ -4,6 +4,8 @@ import TaskList, { TaskListProps } from "../../organisms/task-list/TaskList";
 
 const PageWrapper = styled.div`
   text-align: center;
+  min-width: 100%;
+  min-height: 100vh;
 `;
 
 export type PageLayoutProps = HeaderProps & TaskListProps & { isDone: boolean };

@@ -1,6 +1,7 @@
 import "./App.css";
 import PageLayout from "./components/templates/page-template/PageTemplate";
 import { TaskListProps } from "./components/organisms/task-list/TaskList";
+import { useState } from "react";
 
 const tasks: TaskListProps["tasks"] = [
   {
@@ -13,7 +14,7 @@ const tasks: TaskListProps["tasks"] = [
     id: "2",
     title: "Task 2",
     subtitle: "Subtitle 2",
-    isDone: false,
+    isDone: true,
   },
   {
     id: "3",
@@ -25,13 +26,13 @@ const tasks: TaskListProps["tasks"] = [
     id: "4",
     title: "Task 4",
     subtitle: "Subtitle 4",
-    isDone: false,
+    isDone: true,
   },
   {
     id: "5",
     title: "Task 5",
     subtitle: "Subtitle 5",
-    isDone: false,
+    isDone: true,
   },
   {
     id: "6",
@@ -95,16 +96,26 @@ const tasks: TaskListProps["tasks"] = [
   },
 ];
 function App() {
+  const [showDone, setShowDone] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+
+  const filteredTasks = tasks.filter((task) => {
+    if (showDone) {
+      return task.title.includes(searchValue) && task.isDone;
+    }
+    return task.title.includes(searchValue);
+  });
+
   return (
     <>
       <PageLayout
-        tasks={tasks}
+        tasks={filteredTasks}
         logoName="Logo"
-        isDone={false}
+        isDone={showDone}
         searchName="Search:"
-        searchValue=""
-        onDoneChange={() => {}}
-        onSearchChange={() => {}}
+        searchValue={searchValue}
+        onDoneChange={() => setShowDone(!showDone)}
+        onSearchChange={(e) => setSearchValue(e.target.value)}
       />
     </>
   );

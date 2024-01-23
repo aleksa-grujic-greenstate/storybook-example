@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { Checkbox } from "../../atoms/checkbox/Checkbox";
 import { LogoPlaceholder } from "../../atoms/logo-placeholder/LogoPlaceholder";
-import { SearchField } from "../../atoms/search-field/SearchField";
+import {
+  SearchField,
+  SearchFieldProps,
+} from "../../atoms/search-field/SearchField";
 
 const HeaderWrapper = styled.header`
   display: flex;
@@ -9,16 +12,15 @@ const HeaderWrapper = styled.header`
   align-items: center;
   padding: 20px;
   background-color: #f8f9fa;
-  width: 100%;
 `;
 
 export type HeaderProps = {
   logoName: string;
   isDone: boolean;
   onDoneChange: () => void;
-  searchName: string;
-  onSearchChange: () => void;
-  searchValue: string;
+  searchName: SearchFieldProps["name"];
+  onSearchChange: SearchFieldProps["onChange"];
+  searchValue: SearchFieldProps["value"];
 };
 const Header = ({
   logoName,

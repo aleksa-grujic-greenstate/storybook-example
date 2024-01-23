@@ -3,6 +3,9 @@ import ListItem from "../../molecules/list-item/ListItem";
 
 const TaskListWrapper = styled.div`
   margin: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 export type TaskListProps = {
