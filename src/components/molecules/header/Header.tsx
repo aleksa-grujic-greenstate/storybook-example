@@ -9,6 +9,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   padding: 20px;
   background-color: #f8f9fa;
+  width: 100%;
 `;
 
 export type HeaderProps = {
@@ -30,10 +31,7 @@ const Header = ({
   <HeaderWrapper>
     <LogoPlaceholder name={logoName} />
 
-    <label>
-      Done
-      <Checkbox name="Done" checked={isDone} onChange={onDoneChange} />
-    </label>
+    <Checkbox name="Done" checked={isDone} onChange={onDoneChange} />
     <SearchField
       name={searchName}
       value={searchValue}

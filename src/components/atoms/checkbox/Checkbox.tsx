@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+const LabelWrapper = styled.label`
+  display: block;
+  margin: 10px;
+`;
+
 const CheckboxWrapper = styled.input.attrs({ type: "checkbox" })`
   margin: 10px;
 `;
@@ -11,5 +16,10 @@ export type CheckboxProps = {
 };
 
 export const Checkbox = ({ name, checked, onChange }: CheckboxProps) => {
-  return <CheckboxWrapper name={name} checked={checked} onChange={onChange} />;
+  return (
+    <LabelWrapper>
+      {name}
+      <CheckboxWrapper name={name} checked={checked} onChange={onChange} />
+    </LabelWrapper>
+  );
 };
