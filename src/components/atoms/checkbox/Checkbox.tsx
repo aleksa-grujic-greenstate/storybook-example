@@ -9,6 +9,10 @@ const CheckboxWrapper = styled.input.attrs({ type: "checkbox" })`
   margin: 10px;
 `;
 
+const LabelText = styled.p`
+  margin: 10px;
+  color: green;
+`;
 export type CheckboxProps = {
   name: string;
   checked: boolean;
@@ -18,7 +22,7 @@ export type CheckboxProps = {
 export const Checkbox = ({ name, checked, onChange }: CheckboxProps) => {
   return (
     <LabelWrapper>
-      {name}
+      <LabelText>{name}</LabelText>
       <CheckboxWrapper name={name} checked={checked} onChange={onChange} />
     </LabelWrapper>
   );
